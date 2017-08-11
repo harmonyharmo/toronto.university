@@ -5,14 +5,7 @@ import {MdButtonModule, MdCardModule, MdIconModule, MdMenuModule, MdToolbarModul
 @NgModule({
   imports: [
     CommonModule,
-
-    MdToolbarModule,
-    MdIconModule,
-    MdButtonModule,
-    MdMenuModule,
-    MdCardModule
   ],
-  declarations: [],
   exports: [
     MdToolbarModule,
     MdIconModule,

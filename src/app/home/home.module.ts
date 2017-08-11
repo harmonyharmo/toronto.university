@@ -5,6 +5,7 @@ import {HomeComponent} from './home.component';
 import {HomeRoutingModule} from './home-routing.module';
 import {SidebarModule} from '../core/sidebar/sidebar.module';
 import {SharedModule} from '../shared/shared.module';
+import {TopbarModule} from '../core/topbar/topbar.module';
 
 @NgModule({
   declarations: [
@@ -12,9 +13,11 @@ import {SharedModule} from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SidebarModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+
+    TopbarModule,
+    SidebarModule,
   ],
   exports: [HomeComponent]
 })
