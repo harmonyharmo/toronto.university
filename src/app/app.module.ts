@@ -6,6 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CoreModule} from './core/core.module';
 import {HomeModule} from './home/home.module';
+import { MdSidenavModule, MdToolbarModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import {HomeModule} from './home/home.module';
     AppRoutingModule,
 
     CoreModule,
-    HomeModule
+    HomeModule,
+    MdSidenavModule,
+    MdToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
