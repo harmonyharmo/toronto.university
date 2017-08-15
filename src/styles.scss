@@ -2,6 +2,16 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-html, body {
+html, body, app-root {
   margin: 0;
+  height: 100%;
 }
+
+//md-sidenav-container {
+//  display：flex:
+//}
+
+.container{
+  display: flex;
+}
+
