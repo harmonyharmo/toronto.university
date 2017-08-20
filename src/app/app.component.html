@@ -1,5 +1,31 @@
-<app-toolbar></app-toolbar>
+<!--put toolbar and sidenav together for easier toggle and built-in backdrop-->
+
+<md-toolbar color="primary">
+  <button md-button (click)="sidenav.toggle()">
+    <md-icon>menu</md-icon>
+  </button>
+  <span>Toronto.University</span>
+</md-toolbar>
+
 <md-sidenav-container>
-  <app-sidebar></app-sidebar>
-  <router-outlet></router-outlet>
+
+  <md-sidenav mode="side" #sidenav>
+    <md-nav-list>
+      <a md-list-item [routerLink]="['']" routerLinkActive="active">
+        <button md-button="">
+          <md-icon>home</md-icon>
+          <span md-line="">Home</span>
+        </button>
+      </a>
+      <a md-list-item [routerLink]="['contact']" routerLinkActive="active">
+        <button md-button="">
+          <md-icon>contacts</md-icon>
+          <span md-line="">Contact</span>
+        </button>
+      </a>
+    </md-nav-list>
+  </md-sidenav>
+
+  <app-content></app-content>
+
 </md-sidenav-container>

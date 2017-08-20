@@ -1,17 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+//@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import './theme';
 
-html, body, app-root {
+body {
   margin: 0;
-  height: 100%;
 }
 
-//md-sidenav-container {
-//  display：flex:
-//}
-
-.container{
-  display: flex;
+html, body, md-sidenav-container {
+  height: 100%;
 }
 
