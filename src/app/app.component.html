@@ -11,15 +11,16 @@
 
   <md-sidenav mode="side" #sidenav>
     <md-nav-list>
-      <a md-list-item [routerLink]="['']" routerLinkActive="active">
+      <md-list-item [routerLink]="['']" routerLinkActive="active">
         <button md-button="">
           <md-icon>home</md-icon>
-          <span md-line="">Home</span>
+          <i class="material-icons">home</i>
+          <span>Home</span>
         </button>
-      </a>
+      </md-list-item>
       <a md-list-item [routerLink]="['contact']" routerLinkActive="active">
         <button md-button="">
-          <md-icon>contacts</md-icon>
+          <md-icon>email</md-icon>
           <span md-line="">Contact</span>
         </button>
       </a>

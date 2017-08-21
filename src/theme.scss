@@ -8,11 +8,78 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
-$primary: mat-palette($mat-blue, 700, 600, 800);
-$accent:  mat-palette($mat-red, 700, 600, 800);
+
+$ut-blue: (
+  50: #e0e5eb,
+  100: #b3bfce,
+  200: #8095ae,
+  300: #4d6a8d,
+  400: #264a74,
+  500: #002a5c,
+  600: #002554,
+  700: #001f4a,
+  800: #001941,
+  900: #000f30,
+  A100: #6984ff,
+  A200: #365aff,
+  A400: #0330ff,
+  A700: #002ae8,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: white,
+    500: white,
+    600: $white-87-opacity,
+    700: $white-87-opacity,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: white,
+    A700: $white-87-opacity,
+  )
+);
+
+$ut-red: (
+  50: #f7e3e8,
+  100: #ebb8c5,
+  200: #dd899f,
+  300: #cf5a78,
+  400: #c5365b,
+  500: #bb133e,
+  600: #b51138,
+  700: #ac0e30,
+  800: #a40b28,
+  900: #96061b,
+  A100: #ffc2c8,
+  A200: #ff8f9a,
+  A400: #ff5c6d,
+  A700: #ff4256,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: white,
+    500: white,
+    600: $white-87-opacity,
+    700: $white-87-opacity,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: white,
+    A700: $white-87-opacity,
+  )
+);
+
+$primary: mat-palette($ut-blue);
+$accent: mat-palette($ut-red);
 
 // The warn palette is optional (defaults to red).
-$warn:    mat-palette($mat-red);
+$warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $theme-object: mat-light-theme($primary, $accent, $warn);
