@@ -1,5 +1,7 @@
-md-nav-list {
+md-sidenav-container {
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  md-nav-list {
+    display: flex;
+    flex-direction: column;
+  }
 }
