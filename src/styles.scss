@@ -1,13 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
-@import './theme';
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:500');
+@import 'theme';
 
 html, body {
   margin: 0;
   height: 100%;
   app-root {
     height: 100%;
+
+    //css flex is needed here because angular flex does not work at app-root
     display: flex;
     flex-direction: column;
   }

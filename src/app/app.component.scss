@@ -1,7 +1,8 @@
+@import "core/../../theme";
+
 md-sidenav-container {
   height: 100%;
-  md-nav-list {
-    display: flex;
-    flex-direction: column;
+  .active button {
+    color: mat-color($primary, A100)
   }
 }

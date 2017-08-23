@@ -10,19 +10,22 @@
 <md-sidenav-container>
 
   <md-sidenav mode="over" #sidenav>
-    <md-nav-list>
-      <md-list-item [routerLink]="['']" routerLinkActive="active">
+    <md-nav-list fxLayout="column">
+
+      <md-list-item [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <button md-button="">
           <md-icon>home</md-icon>
           <span>Home</span>
         </button>
       </md-list-item>
+
       <md-list-item [routerLink]="['contact']" routerLinkActive="active">
         <button md-button="">
           <md-icon>email</md-icon>
           <span>Contact</span>
         </button>
       </md-list-item>
+
     </md-nav-list>
   </md-sidenav>
 
