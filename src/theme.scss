@@ -81,9 +81,9 @@ $accent: mat-palette($ut-red);
 $warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$theme-object: mat-light-theme($primary, $accent, $warn);
+$custom-theme: mat-light-theme($primary, $accent, $warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($theme-object);
+@include angular-material-theme($custom-theme);

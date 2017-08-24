@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,500');
-@import 'theme';
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700');
+@import 'theme'; //color theme
+@import "typography";
 
 html, body {
   margin: 0;
