@@ -3,8 +3,9 @@
 // Define a custom typography config that overrides the font-family as well as the
 // `headlines` and `body-1` levels.
 $custom-typography: mat-typography-config(
-  $headline: mat-typography-level(32px, 48px, 700),
-  $body-1: mat-typography-level(16px, 24px, 500)
+  $headline: mat-typography-level(32px, 52px, bold),
+  $body-1: mat-typography-level(20px, 24px, normal),
+  $body-2: mat-typography-level(20px, 24px, bold)
 );
 
 @include angular-material-typography($custom-typography);
