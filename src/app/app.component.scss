@@ -1,7 +1,16 @@
 @import "core/../../theme";
 
-md-toolbar span{
-  width: 100%; // title takes all the remaining space
+md-toolbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  padding: 0 16px 0 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.30);
+  span {
+    width: 100%;
+  }
 }
 
 md-sidenav-container {
