@@ -1,0 +1,20 @@
+md-form-field {
+  min-width: 150px;
+
+  md-placeholder {
+    margin-left: 10px;
+  }
+
+  input {
+    color: gray;
+    border: none;
+    border-radius: 100px;
+    background-color: white;
+    padding: 5px 16px;
+
+    &:focus {
+      outline: none;
+    }
+
+  }
+}

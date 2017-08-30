@@ -1,5 +1,9 @@
 @import "core/../../theme";
 
+md-toolbar span{
+  width: 100%; // title takes all the remaining space
+}
+
 md-sidenav-container {
   height: 100%;
   .active button {
