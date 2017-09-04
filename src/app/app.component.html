@@ -1,16 +1,16 @@
 <!--put toolbar and sidenav together for easier toggle and built-in backdrop-->
-
 <md-toolbar color="primary">
   <span fxLayout="row" fxLayoutAlign="space-between center">
     <button md-button (click)="sidenav.toggle()">
       <md-icon>menu</md-icon>
     </button>
     <span>Toronto.University</span>
-    <app-search></app-search>
+    <app-search-box></app-search-box>
   </span>
 </md-toolbar>
 
 <md-sidenav-container>
+  <app-search-result></app-search-result>
 
   <md-sidenav #sidenav>
     <md-nav-list fxLayout="column">
