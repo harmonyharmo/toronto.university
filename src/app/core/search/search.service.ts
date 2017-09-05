@@ -9,6 +9,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 @Injectable()
 export class SearchService {
   results: string;
+  headers = new HttpHeaders().set('Authorization', '7P8dMCt7hwG4ddkxkp1mUTv5VylSxi55');
 
   constructor(private http: HttpClient) {
   }
@@ -20,10 +21,31 @@ export class SearchService {
     //   .distinctUntilChanged()   // ignore if next search term is same as previous
     //   .switchMap(term => Observable.create(term.toLowerCase());
 
-    console.log(query);
     if (query.length < 6) {
       return;
     }
+
+    // this.http.get('https://cobalt.qas.im/api/1.0/buildings/080',
+    //   {headers: this.headers})
+    //   .subscribe(
+    //     data => {
+    //       console.log(JSON.stringify(data));
+    //       for (const course of Object.keys(data)) {
+    //         this.results = data[course].courseDescription;
+    //         console.log(this.results);
+    //         return;
+    //       }
+    //     },
+    //     (err: HttpErrorResponse) => {
+    //       if (err.error instanceof Error) {
+    //         // A client-side or network error occurred. Handle it accordingly.
+    //         console.log('An error occurred:', err.error.message);
+    //       } else {
+    //         // The backend returned an unsuccessful response code.
+    //         // The response body may contain clues as to what went wrong,
+    //         console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+    //       }
+    //     })
 
     this.http.get('https://cors-anywhere.herokuapp.com/' // use proxy to bypass CORS
       + 'https://timetable.iit.artsci.utoronto.ca/api/20179/courses?org=&code='
@@ -31,11 +53,7 @@ export class SearchService {
       + '&section=&studyyear=&daytime=&weekday=&prof=&breadth=&online=&waitlist=&available=&title=')
       .subscribe(
         data => {
-          for (const course of Object.keys(data)) {
-            this.results = data[course].courseDescription;
-            console.log(this.results);
-            return;
-          }
+          this.results = data[Object.keys(data)[0]].courseDescription;
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
