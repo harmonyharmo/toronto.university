@@ -61,7 +61,7 @@ export class SearchService {
       + 'https://cobalt.qas.im/api/1.0/buildings/search',
       {
         headers: this.headers,
-        params: new HttpParams().set('q', this.query + ' ')
+        params: new HttpParams().set('q', this.query + ' ') // minimum query length is 3
       }
     )
       .subscribe(
