@@ -1,9 +1,10 @@
 <md-card class="mat-typography">
   <md-card-header>
-    <md-card-title><h1>Search Results</h1></md-card-title>
+    <md-card-title><h1>Search Guide</h1></md-card-title>
   </md-card-header>
   <md-card-content>
-    {{searchService.results}}
+    <h2>See results of course codes, building codes or waitlist here!</h2>
+    <div [innerHtml]="searchService.results"></div>
   </md-card-content>
 </md-card>
 
