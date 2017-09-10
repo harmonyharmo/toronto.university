@@ -4,6 +4,9 @@ import { HomeModule } from './home/home.module';
 import { ContactModule } from './contact/contact.module';
 import { ContentComponent } from './content.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { AboutComponent } from './about/about.component';
+import { MarkdownModule } from 'angular2-markdown';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -11,9 +14,11 @@ import { AppRoutingModule } from '../app-routing.module';
     CommonModule,
     AppRoutingModule,
     HomeModule,
-    ContactModule
+    ContactModule,
+    MarkdownModule,
+    SharedModule
   ],
-  declarations: [ContentComponent],
+  declarations: [ContentComponent, AboutComponent],
   exports: [ContentComponent]
 })
 export class ContentModule {

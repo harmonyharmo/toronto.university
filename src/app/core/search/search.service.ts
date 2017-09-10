@@ -25,35 +25,56 @@ export class SearchService {
     if (query.length === 2) {
       this.searchBuilding();
     }
-    if (query.length === 6) {
+    if (query.length > 6) {
       this.searchCourse();
     }
   }
 
   private searchCourse() {
-    this.http.get('https://cors-anywhere.herokuapp.com/' // use proxy to bypass CORS
-      + 'https://timetable.iit.artsci.utoronto.ca/api/20179/courses?org=&code='
-      + this.query
-      + '&section=&studyyear=&daytime=&weekday=&prof=&breadth=&online=&waitlist=&available=&title=')
-      .subscribe(
-        data => {
-          const fall = data[Object.keys(data)[0]];
-          const meetings = fall.meetings;
-          const meeting = meetings[Object.keys(meetings)[0]];
+    if (this.query.length === 16) {
+      this.http.get('https://cors-anywhere.herokuapp.com/' // use proxy to bypass CORS
+        + 'https://timetable.iit.artsci.utoronto.ca/api/20179/courses?org=&code='
+        + this.query
+        + '&section=&studyyear=&daytime=&weekday=&prof=&breadth=&online=&waitlist=&available=&title=')
+        .subscribe(
+          data => {
+            const fall = data[Object.keys(data)[0]];
+            const meetings = fall.meetings;
+            const meeting = meetings[Object.keys(meetings)[0]];
 
-          this.results = '<h1>' + fall.courseTitle + '</h1>' + fall.courseDescription
-            + '<br/>Waitlist : ' + meeting.actualWaitlist + '/' + meeting.actualEnrolment;
-        },
-        (err: HttpErrorResponse) => {
-          if (err.error instanceof Error) {
-            // A client-side or network error occurred. Handle it accordingly.
-            console.log('An error occurred:', err.error.message);
-          } else {
-            // The backend returned an unsuccessful response code.
-            // The response body may contain clues as to what went wrong,
-            console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
-          }
-        });
+            this.results = '<h1>' + fall.courseTitle + '</h1>' + fall.courseDescription
+              + '<br/>Waitlist : ' + meeting.actualWaitlist + '/' + meeting.actualEnrolment;
+          },
+          (err: HttpErrorResponse) => {
+            if (err.error instanceof Error) {
+              // A client-side or network error occurred. Handle it accordingly.
+              console.log('An error occurred:', err.error.message);
+            } else {
+              // The backend returned an unsuccessful response code.
+              // The response body may contain clues as to what went wrong,
+              console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+            }
+          });
+    } else {
+      this.http.get('https://cors-anywhere.herokuapp.com/' // use proxy to bypass CORS
+        + 'https://cobalt.qas.im/api/1.0/courses/CSC148H120179',
+        {headers: this.headers})
+        .subscribe(
+          data => {
+            const course = data;
+            this.results = '<h1>' + course['name'] + '</h1>' + course['description'];
+          },
+          (err: HttpErrorResponse) => {
+            if (err.error instanceof Error) {
+              // A client-side or network error occurred. Handle it accordingly.
+              console.log('An error occurred:', err.error.message);
+            } else {
+              // The backend returned an unsuccessful response code.
+              // The response body may contain clues as to what went wrong,
+              console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+            }
+          });
+    }
   }
 
   private searchBuilding() {
