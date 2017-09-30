@@ -1,10 +1,7 @@
 <md-card class="mat-typography">
-  <md-card-header>
-    <md-card-title><h1>Search Guide</h1></md-card-title>
-  </md-card-header>
-  <md-card-content>
-    <h2>See results of course codes, building codes or waitlist here!</h2>
-    <div [innerHtml]="searchService.results"></div>
-  </md-card-content>
+  <markdown>
+    HINT: Type "MAT137" or "SS" into the search box and see results here :)
+  </markdown>
+  <div [innerHtml]="searchService.results"></div>
 </md-card>
 

@@ -8,7 +8,7 @@ import { URLSearchParams } from '@angular/http';
 
 @Injectable()
 export class SearchService {
-  query: string
+  query: string;
   results: string;
   headers = new HttpHeaders({'Authorization': '7P8dMCt7hwG4ddkxkp1mUTv5VylSxi55'});
 
@@ -25,13 +25,15 @@ export class SearchService {
     if (query.length === 2) {
       this.searchBuilding();
     }
-    if (query.length > 6) {
+    if (query.length >= 6) {
       this.searchCourse();
     }
   }
 
   private searchCourse() {
-    if (this.query.length === 16) {
+    if (this.query.length === 6) {
+      this.http.get('https://cors-anywhere.herokuapp.com/http://example.com')
+        .subscribe(data => console.log(data));
       this.http.get('https://cors-anywhere.herokuapp.com/' // use proxy to bypass CORS
         + 'https://timetable.iit.artsci.utoronto.ca/api/20179/courses?org=&code='
         + this.query

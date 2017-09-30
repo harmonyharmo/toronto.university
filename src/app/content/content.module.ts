@@ -7,6 +7,8 @@ import { AppRoutingModule } from '../app-routing.module';
 import { AboutComponent } from './about/about.component';
 import { MarkdownModule } from 'angular2-markdown';
 import { SharedModule } from '../shared/shared.module';
+import { ReferralComponent } from './referral/referral.component';
+import { JoinComponent } from './join/join.component';
 
 
 @NgModule({
@@ -18,7 +20,7 @@ import { SharedModule } from '../shared/shared.module';
     MarkdownModule,
     SharedModule
   ],
-  declarations: [ContentComponent, AboutComponent],
+  declarations: [ContentComponent, AboutComponent, ReferralComponent, JoinComponent],
   exports: [ContentComponent]
 })
 export class ContentModule {

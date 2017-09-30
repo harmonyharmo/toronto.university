@@ -8,6 +8,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { SharedModule } from '../../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { MarkdownModule } from 'angular2-markdown';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { HttpModule } from '@angular/http';
     SharedModule,
     FormsModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    MarkdownModule
   ],
   declarations: [SearchBoxComponent, SearchResultComponent],
   exports: [SearchBoxComponent, SearchResultComponent],
