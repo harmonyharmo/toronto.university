@@ -6,6 +6,7 @@ import { Http, RequestOptions, Response } from '@angular/http';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { URLSearchParams } from '@angular/http';
 
+
 @Injectable()
 export class SearchService {
   query: string;
@@ -13,6 +14,10 @@ export class SearchService {
   headers = new HttpHeaders({'Authorization': '7P8dMCt7hwG4ddkxkp1mUTv5VylSxi55'});
 
   constructor(private http: HttpClient) {
+  }
+
+  private get_link(display: string, link: string) {
+    return '<a href=' + link + '>' + display + '</a>';
   }
 
   search(query: string) {
@@ -46,6 +51,11 @@ export class SearchService {
 
             this.results = '<h1>' + fall.courseTitle + '</h1>' + fall.courseDescription
               + '<br/>Waitlist : ' + meeting.actualWaitlist + '/' + meeting.actualEnrolment;
+
+            if (this.query.toLowerCase().startsWith('csc')) {
+              const link = 'https://markus.teach.cs.toronto.edu/' + this.query + '-2017-09/en/assignments';
+              this.results = this.get_link('Markus', link) + this.results;
+            }
           },
           (err: HttpErrorResponse) => {
             if (err.error instanceof Error) {
@@ -91,7 +101,7 @@ export class SearchService {
         data => {
           const building = data[0];
           const link = 'https://www.google.com/maps/place/' + encodeURIComponent(building.name);
-          this.results = '<a href=' + link + '>' + building.name + '</a>';
+          this.results = this.get_link(building.name, link);
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
@@ -104,4 +114,6 @@ export class SearchService {
           }
         });
   }
+
+
 }
