@@ -26,7 +26,7 @@ export class SearchService {
     //   .debounceTime(300)        // wait for 300ms pause in events
     //   .distinctUntilChanged()   // ignore if next search term is same as previous
     //   .switchMap(term => Observable.create(term.toLowerCase());
-    this.query = query;
+    this.query = query.toLowerCase();
     if (query.length === 2) {
       this.searchBuilding();
     }
@@ -52,7 +52,7 @@ export class SearchService {
             this.results = '<h1>' + fall.courseTitle + '</h1>' + fall.courseDescription
               + '<br/>Waitlist : ' + meeting.actualWaitlist + '/' + meeting.actualEnrolment;
 
-            if (this.query.toLowerCase().startsWith('csc')) {
+            if (this.query.startsWith('csc')) {
               const link = 'https://markus.teach.cs.toronto.edu/' + this.query + '-2017-09/en/assignments';
               this.results = this.get_link('Markus', link) + this.results;
             }
