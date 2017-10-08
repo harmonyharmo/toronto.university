@@ -1,6 +1,6 @@
 {
   "name": "Toronto.University",
-  "short_name": "T.U",
+  "short_name": "Tor.Uni",
   "icons": [
     {
       "src": "icons/icon-128x128.png",
@@ -28,7 +28,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/index.html",
+  "start_url": "",
   "display": "standalone",
   "background_color": "#002A5C",
   "default_locale": "en",
