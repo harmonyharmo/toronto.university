@@ -5,7 +5,8 @@ import 'rxjs/add/operator/map';
 import { Http, RequestOptions, Response } from '@angular/http';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { URLSearchParams } from '@angular/http';
-import { isUndefined, log } from 'util';
+import { isUndefined } from 'util';
+import { forEach } from '@angular/router/src/utils/collection';
 
 
 @Injectable()
@@ -61,7 +62,12 @@ export class SearchService {
               + '<br/>Waitlist : ' + meeting.actualWaitlist + '/' + meeting.actualEnrolment;
 
             if (this.query.startsWith('csc')) {
-              const link = 'https://markus.teach.cs.toronto.edu/' + this.query + '-2017-09/en/assignments';
+              let link;
+              if (this.query === 'csc318') {
+                link = `https://markus.teach.cs.toronto.edu/${this.query}-2017-09-5101/en/assignments`;
+              } else {
+                link = `https://markus.teach.cs.toronto.edu/${this.query}-2017-09/en/assignments`;
+              }
               this.results = SearchService.get_link('Markus', link) + this.results;
             }
           },
@@ -111,6 +117,21 @@ export class SearchService {
           const building = data[0];
           const link = 'https://www.google.com/maps/place/' + encodeURIComponent(building.name);
           this.results = SearchService.get_link(building.name, link);
+          this.http.get('https://cors-anywhere.herokuapp.com/'
+            + `http://uoftstudyspot.com/api/optimize?code=${this.query}`).subscribe(
+            rooms => {
+              let empty_rooms = '';
+
+              for (const key in Object.keys(rooms)) {
+                empty_rooms += '</br> Room ' + rooms[key]['id'];
+              }
+              if (empty_rooms !== '') {
+                empty_rooms = '<h2>Free rooms</h2>' + empty_rooms;
+              }
+
+              this.results += empty_rooms;
+            }
+          );
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {

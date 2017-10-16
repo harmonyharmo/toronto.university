@@ -1,7 +1,13 @@
 var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
   '/',
-  '/index.html'
+  '/index.html',
+  './main.ts',
+  './polyfills.ts',
+  './styles.scss',
+  './theme.scss',
+  './assets/icons',
+  './app/core'
 ];
 
 self.addEventListener('install', function (event) {
@@ -22,12 +28,12 @@ self.addEventListener('fetch', function (event) {
   event.respondWith(
     caches.match(event.request)
       .then(function (response) {
-          // Cache hit - return response
-          if (response) {
-            return response;
-          }
-          return fetch(event.request);
+        // Cache hit - return response
+        if (response) {
+          return response;
         }
+        return fetch(event.request);
+      }
       )
   );
 });
