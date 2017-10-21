@@ -29,12 +29,11 @@ export class SearchService {
     //   .distinctUntilChanged()   // ignore if next search term is same as previous
     //   .switchMap(term => Observable.create(term.toLowerCase());
     this.query = query.toLowerCase();
-    if (query.length === 2) {
-      this.searchBuilding();
-    }
-    if (query.length === 6) {
-      this.searchCourse();
-    }
+    
+    this.searchBuilding();
+    
+    this.searchCourse();
+    
     // unstable
     // if (this.query.length >= 5) {
     //   this.searchRoom();
@@ -105,44 +104,47 @@ export class SearchService {
   }
 
   private searchBuilding() {
-    this.http.get('https://cors-anywhere.herokuapp.com/'
-      + 'https://cobalt.qas.im/api/1.0/buildings/search',
-      {
-        headers: this.headers,
-        params: new HttpParams().set('q', this.query + ' ') // minimum query length is 3
-      }
-    )
-      .subscribe(
-        data => {
-          const building = data[0];
-          const link = 'https://www.google.com/maps/place/' + encodeURIComponent(building.name);
-          this.results = SearchService.get_link(building.name, link);
-          this.http.get('https://cors-anywhere.herokuapp.com/'
-            + `http://uoftstudyspot.com/api/optimize?code=${this.query}`).subscribe(
-            rooms => {
-              let empty_rooms = '';
+    if(this.query.length == 2)
+    {
+      this.http.get('https://cors-anywhere.herokuapp.com/'
+        + 'https://cobalt.qas.im/api/1.0/buildings/search',
+        {
+          headers: this.headers,
+          params: new HttpParams().set('q', this.query + ' ') // minimum query length is 3
+        }
+      )
+        .subscribe(
+          data => {
+            const building = data[0];
+            const link = 'https://www.google.com/maps/place/' + encodeURIComponent(building.name);
+            this.results = SearchService.get_link(building.name, link);
+            this.http.get('https://cors-anywhere.herokuapp.com/'
+              + `http://uoftstudyspot.com/api/optimize?code=${this.query}`).subscribe(
+              rooms => {
+                let empty_rooms = '';
 
-              for (const key in Object.keys(rooms)) {
-                empty_rooms += '</br> Room ' + rooms[key]['id'];
-              }
-              if (empty_rooms !== '') {
-                empty_rooms = '<h2>Free rooms</h2>' + empty_rooms;
-              }
+                for (const key in Object.keys(rooms)) {
+                  empty_rooms += '</br> Room ' + rooms[key]['id'];
+                }
+                if (empty_rooms !== '') {
+                  empty_rooms = '<h2>Free rooms</h2>' + empty_rooms;
+                }
 
-              this.results += empty_rooms;
-            }
-          );
-        },
-        (err: HttpErrorResponse) => {
-          if (err.error instanceof Error) {
-            // A client-side or network error occurred. Handle it accordingly.
-            console.log('An error occurred:', err.error.message);
-          } else {
-            // The backend returned an unsuccessful response code.
-            // The response body may contain clues as to what went wrong,
-            console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+                this.results += empty_rooms;
+              }
+           );
+          },
+          (err: HttpErrorResponse) => {
+            if (err.error instanceof Error) {
+              // A client-side or network error occurred. Handle it accordingly.
+              console.log('An error occurred:', err.error.message);
+            } else {
+              // The backend returned an unsuccessful response code.
+              // The response body may contain clues as to what went wrong,
+              console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
           }
         });
+     }
   }
 
 
