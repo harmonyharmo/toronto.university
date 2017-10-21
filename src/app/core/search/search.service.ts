@@ -30,6 +30,8 @@ export class SearchService {
     //   .switchMap(term => Observable.create(term.toLowerCase());
     this.query = query.toLowerCase();
     
+    this.results = ''
+    
     this.searchBuilding();
     
     this.searchCourse();
@@ -57,7 +59,7 @@ export class SearchService {
             const meetings = fall.meetings;
             const meeting = meetings[Object.keys(meetings)[0]];
 
-            this.results = '<h1>' + fall.courseTitle + '</h1>' + fall.courseDescription
+            this.results += '<h1>' + fall.courseTitle + '</h1>' + fall.courseDescription
               + '<br/>Waitlist : ' + meeting.actualWaitlist + '/' + meeting.actualEnrolment;
 
             if (this.query.startsWith('csc')) {
@@ -117,7 +119,7 @@ export class SearchService {
           data => {
             const building = data[0];
             const link = 'https://www.google.com/maps/place/' + encodeURIComponent(building.name);
-            this.results = SearchService.get_link(building.name, link);
+            this.results += SearchService.get_link(building.name, link);
             this.http.get('https://cors-anywhere.herokuapp.com/'
               + `http://uoftstudyspot.com/api/optimize?code=${this.query}`).subscribe(
               rooms => {
@@ -157,7 +159,7 @@ export class SearchService {
       {headers: this.headers})
       .subscribe(
         data => {
-          this.results = SearchService.get_link('Room Info', link);
+          this.results += SearchService.get_link('Room Info', link);
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
