@@ -29,11 +29,11 @@ export class SearchService {
     //   .distinctUntilChanged()   // ignore if next search term is same as previous
     //   .switchMap(term => Observable.create(term.toLowerCase());
     this.query = query.toLowerCase();
-    
+
     this.searchBuilding();
-    
+
     this.searchCourse();
-    
+
     // unstable
     // if (this.query.length >= 5) {
     //   this.searchRoom();
@@ -104,8 +104,7 @@ export class SearchService {
   }
 
   private searchBuilding() {
-    if(this.query.length == 2)
-    {
+    if (this.query.length == 2) {
       this.http.get('https://cors-anywhere.herokuapp.com/'
         + 'https://cobalt.qas.im/api/1.0/buildings/search',
         {
@@ -132,7 +131,7 @@ export class SearchService {
 
                 this.results += empty_rooms;
               }
-           );
+            );
           },
           (err: HttpErrorResponse) => {
             if (err.error instanceof Error) {
@@ -142,9 +141,9 @@ export class SearchService {
               // The backend returned an unsuccessful response code.
               // The response body may contain clues as to what went wrong,
               console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
-          }
-        });
-     }
+            }
+          });
+    }
   }
 
 

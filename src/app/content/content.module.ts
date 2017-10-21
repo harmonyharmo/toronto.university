@@ -9,6 +9,8 @@ import { MarkdownModule } from 'angular2-markdown';
 import { SharedModule } from '../shared/shared.module';
 import { ReferralComponent } from './referral/referral.component';
 import { JoinComponent } from './join/join.component';
+import { GuideComponent } from './guide/guide.component';
+import { ExamComponent } from './exam/exam.component';
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { JoinComponent } from './join/join.component';
     MarkdownModule,
     SharedModule
   ],
-  declarations: [ContentComponent, AboutComponent, ReferralComponent, JoinComponent],
+  declarations: [
+    ContentComponent, AboutComponent, ReferralComponent, JoinComponent, GuideComponent, ExamComponent],
   exports: [ContentComponent]
 })
 export class ContentModule {

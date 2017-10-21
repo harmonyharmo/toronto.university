@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MdButtonModule, MdCardModule, MdIconModule, MdMenuModule } from '@angular/material';
+import { MdButtonModule, MdCardModule, MdIconModule, MdMenuModule, MdTableModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -12,6 +12,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MdButtonModule,
     MdMenuModule,
     MdCardModule,
+    MdTableModule,
     FlexLayoutModule
   ]
 })
