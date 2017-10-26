@@ -13,6 +13,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 export class SearchService {
   query: string;
   results: string;
+  showSearchResults = false;
   headers = new HttpHeaders({'Authorization': '7P8dMCt7hwG4ddkxkp1mUTv5VylSxi55'});
 
   constructor(private http: HttpClient) {
@@ -28,6 +29,7 @@ export class SearchService {
     //   .debounceTime(300)        // wait for 300ms pause in events
     //   .distinctUntilChanged()   // ignore if next search term is same as previous
     //   .switchMap(term => Observable.create(term.toLowerCase());
+
     this.query = query.toLowerCase();
 
     this.searchBuilding();

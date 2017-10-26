@@ -1,4 +1,3 @@
-<md-card>
+<md-card class="search-results" *ngIf="searchService.showSearchResults">
   <div [innerHtml]="searchService.results"></div>
 </md-card>
-

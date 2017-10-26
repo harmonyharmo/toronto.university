@@ -9,34 +9,36 @@
   </span>
 </md-toolbar>
 
+
 <md-sidenav-container>
   <app-search-result></app-search-result>
 
   <md-sidenav #sidenav>
     <md-nav-list fxLayout="column">
 
-      <md-list-item [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <md-list-item (click)="sidenav.toggle()" [routerLink]="['']" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}">
         <button md-button="">
           <md-icon>home</md-icon>
           <span>Home</span>
         </button>
       </md-list-item>
 
-      <md-list-item [routerLink]="['referral']" routerLinkActive="active">
+      <md-list-item [routerLink]="['referral']" routerLinkActive="active" (click)="sidenav.toggle()">
         <button md-button="">
           <md-icon>person_add</md-icon>
           <span>Referral</span>
         </button>
       </md-list-item>
 
-      <md-list-item [routerLink]="['contact']" routerLinkActive="active">
+      <md-list-item (click)="sidenav.toggle()" [routerLink]="['contact']" routerLinkActive="active">
         <button md-button="">
           <md-icon>email</md-icon>
           <span>Contact</span>
         </button>
       </md-list-item>
 
-      <md-list-item [routerLink]="['about']" routerLinkActive="active">
+      <md-list-item (click)="sidenav.toggle()" [routerLink]="['about']" routerLinkActive="active">
         <button md-button="">
           <md-icon>help_outline</md-icon>
           <span>About</span>

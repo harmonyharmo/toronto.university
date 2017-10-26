@@ -1,3 +1,12 @@
-md-card.hint {
-  background-color: darkgray;
+md-card {
+  background-color: lightcoral;
 }
+
+.visually-hidden {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+
+

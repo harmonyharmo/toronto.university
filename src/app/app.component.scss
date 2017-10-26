@@ -23,3 +23,9 @@ md-sidenav-container {
     color: mat-color($primary, A100)
   }
 }
+
+app-search-result{
+  width: 100%;
+  z-index: 10;
+  position: absolute;
+}

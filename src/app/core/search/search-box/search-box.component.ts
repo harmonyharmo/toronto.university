@@ -24,6 +24,7 @@ export class SearchBoxComponent implements OnInit {
   // Push a search term into the observable stream.
   search(query: string): void {
     this.searchService.search(query);
+    this.searchService.showSearchResults = !!query;
   }
 
 }
