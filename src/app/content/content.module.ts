@@ -12,7 +12,6 @@ import { JoinComponent } from './join/join.component';
 import { GuideComponent } from './guide/guide.component';
 import { ExamComponent } from './exam/exam.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
