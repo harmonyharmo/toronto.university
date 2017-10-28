@@ -32,6 +32,8 @@ export class SearchService {
 
     this.query = query.toLowerCase();
 
+    this.searchFood();
+
     this.searchBuilding();
 
     this.searchCourse();
@@ -170,5 +172,44 @@ export class SearchService {
             console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
           }
         });
+  }
+
+  /*
+  A function that searches for food places using the colbat.qas
+  api and a specified food given by 'query'.
+  When the function recieves the data it will call the call back function
+  with the data.
+  */
+  public searchFood() {
+    const link = 'https://cobalt.qas.im/api/1.0/food/search'
+    this.http.get('https://cors-anywhere.herokuapp.com/' + link,
+    {headers: this.headers,
+    params: new HttpParams().set('q', this.query)}
+    ).subscribe(
+      data => {
+        //reset the results
+        this.results = ""
+
+        //Check if there is any data
+        //Right now using the .length property
+        //causes an error so this "work around" is used
+        if(data[0] != undefined){
+          this.results += "<h1> Places with: " + this.query + " </h1>"
+        }
+        for(let i in data){
+          let food_location = data[i]
+          let google_maps_link = 'https://www.google.ca/maps/place/' + food_location['address']
+          this.results += "<a href='" + google_maps_link + "'>"
+                          + food_location['name'] + "</a>" + "<br/>"
+        }
+      },
+      (err: HttpErrorResponse) => {
+        if(err.error instanceof Error) {
+          console.log("An error occurred: ", err.error.message)
+        } else {
+          console.log(`Backend returned code ${err.status}, body was : ${err.error}`)
+        }
+      }
+    )
   }
 }

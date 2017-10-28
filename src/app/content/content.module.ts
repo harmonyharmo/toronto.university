@@ -12,7 +12,6 @@ import { JoinComponent } from './join/join.component';
 import { GuideComponent } from './guide/guide.component';
 import { ExamComponent } from './exam/exam.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -20,7 +19,7 @@ import { ExamComponent } from './exam/exam.component';
     HomeModule,
     ContactModule,
     MarkdownModule,
-    SharedModule
+    SharedModule,
   ],
   declarations: [
     ContentComponent, AboutComponent, ReferralComponent, JoinComponent, GuideComponent, ExamComponent],

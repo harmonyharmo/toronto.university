@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'referral', component: ReferralComponent},
   {path: 'join', component: JoinComponent},
   {path: 'guide', component: GuideComponent},
-  {path: 'exam', component: ExamComponent}
+  {path: 'exam', component: ExamComponent},
 ];
 
 @NgModule({
