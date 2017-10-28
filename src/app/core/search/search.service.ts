@@ -181,35 +181,37 @@ export class SearchService {
   with the data.
   */
   public searchFood() {
-    const link = 'https://cobalt.qas.im/api/1.0/food/search'
+    const link = 'https://cobalt.qas.im/api/1.0/food/search';
     this.http.get('https://cors-anywhere.herokuapp.com/' + link,
-    {headers: this.headers,
-    params: new HttpParams().set('q', this.query)}
+      {
+        headers: this.headers,
+        params: new HttpParams().set('q', this.query)
+      }
     ).subscribe(
       data => {
         //reset the results
-        this.results = ""
+        this.results = '';
 
         //Check if there is any data
         //Right now using the .length property
         //causes an error so this "work around" is used
-        if(data[0] != undefined){
-          this.results += "<h1> Places with: " + this.query + " </h1>"
+        if (data[0] !== undefined) {
+          this.results += '<h1> Places with: ' + this.query + ' </h1>';
         }
-        for(let i in data){
-          let food_location = data[i]
-          let google_maps_link = 'https://www.google.ca/maps/place/' + food_location['address']
-          this.results += "<a href='" + google_maps_link + "'>"
-                          + food_location['name'] + "</a>" + "<br/>"
+        for (let i in data) {
+          let food_location = data[i];
+          let google_maps_link = 'https://www.google.ca/maps/place/' + food_location['address'];
+          this.results += '<a href=\'' + google_maps_link + '\'>'
+            + food_location['name'] + '</a>' + '<br/>';
         }
       },
       (err: HttpErrorResponse) => {
-        if(err.error instanceof Error) {
-          console.log("An error occurred: ", err.error.message)
+        if (err.error instanceof Error) {
+          console.log('An error occurred: ', err.error.message);
         } else {
-          console.log(`Backend returned code ${err.status}, body was : ${err.error}`)
+          console.log(`Backend returned code ${err.status}, body was : ${err.error}`);
         }
       }
-    )
+    );
   }
 }
