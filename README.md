@@ -1,6 +1,13 @@
-# TorontoUniversity
+# Toronto.University
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.7.
+
+## First things first
+
+* install node.js and npm
+* install angular
+* check out repo
+* run "ng s -o" with terminal in repo folder
 
 ## Development server
 
