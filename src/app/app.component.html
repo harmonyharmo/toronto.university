@@ -1,53 +1,53 @@
 <!--put toolbar and sidenav together for easier toggle and built-in backdrop-->
-<md-toolbar color="primary">
+<mat-toolbar color="primary">
   <span fxLayout="row" fxLayoutAlign="space-between center">
-    <button md-button (click)="sidenav.toggle()">
-      <md-icon>menu</md-icon>
+    <button mat-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
     </button>
     <span>Toronto.University</span>
     <app-search-box></app-search-box>
   </span>
-</md-toolbar>
+</mat-toolbar>
 
 
-<md-sidenav-container>
+<mat-sidenav-container>
   <app-search-result></app-search-result>
 
-  <md-sidenav #sidenav>
-    <md-nav-list fxLayout="column">
+  <mat-sidenav #sidenav>
+    <mat-nav-list fxLayout="column">
 
-      <md-list-item (click)="sidenav.toggle()" [routerLink]="['']" routerLinkActive="active"
+      <mat-list-item (click)="sidenav.toggle()" [routerLink]="['']" routerLinkActive="active"
                     [routerLinkActiveOptions]="{exact: true}">
-        <button md-button="">
-          <md-icon>home</md-icon>
+        <button mat-button="">
+          <mat-icon>home</mat-icon>
           <span>Home</span>
         </button>
-      </md-list-item>
+      </mat-list-item>
 
-      <md-list-item [routerLink]="['referral']" routerLinkActive="active" (click)="sidenav.toggle()">
-        <button md-button="">
-          <md-icon>person_add</md-icon>
+      <mat-list-item [routerLink]="['referral']" routerLinkActive="active" (click)="sidenav.toggle()">
+        <button mat-button="">
+          <mat-icon>person_add</mat-icon>
           <span>Referral</span>
         </button>
-      </md-list-item>
+      </mat-list-item>
 
-      <md-list-item (click)="sidenav.toggle()" [routerLink]="['contact']" routerLinkActive="active">
-        <button md-button="">
-          <md-icon>email</md-icon>
+      <mat-list-item (click)="sidenav.toggle()" [routerLink]="['contact']" routerLinkActive="active">
+        <button mat-button="">
+          <mat-icon>email</mat-icon>
           <span>Contact</span>
         </button>
-      </md-list-item>
+      </mat-list-item>
 
-      <md-list-item (click)="sidenav.toggle()" [routerLink]="['about']" routerLinkActive="active">
-        <button md-button="">
-          <md-icon>help_outline</md-icon>
+      <mat-list-item (click)="sidenav.toggle()" [routerLink]="['about']" routerLinkActive="active">
+        <button mat-button="">
+          <mat-icon>help_outline</mat-icon>
           <span>About</span>
         </button>
-      </md-list-item>
+      </mat-list-item>
 
-    </md-nav-list>
-  </md-sidenav>
+    </mat-nav-list>
+  </mat-sidenav>
 
   <app-content></app-content>
 
-</md-sidenav-container>
+</mat-sidenav-container>

@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MdButtonModule, MdCardModule, MdIconModule, MdMenuModule, MdTableModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {
+  MatButtonModule, MatCardModule, MatIconModule, MatListModule, MatMenuModule, MatTableModule
+} from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
   ],
   exports: [
-    MdIconModule,
-    MdButtonModule,
-    MdMenuModule,
-    MdCardModule,
-    MdTableModule,
+    MatIconModule,
+    MatButtonModule,
+    MatListModule,
+    MatMenuModule,
+    MatCardModule,
+    MatTableModule,
     FlexLayoutModule
   ]
 })

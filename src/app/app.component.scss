@@ -1,6 +1,6 @@
 @import "core/../../theme";
 
-md-toolbar {
+mat-toolbar {
   top: 0;
   right: 0;
   left: 0;
@@ -17,7 +17,7 @@ md-toolbar {
   }
 }
 
-md-sidenav-container {
+mat-sidenav-container {
   height: 100%;
   .active button {
     color: mat-color($primary, A100)

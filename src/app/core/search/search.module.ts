@@ -2,22 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { FormsModule } from '@angular/forms';
-import { MdInputModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
 import { SearchService } from './search.service';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { SharedModule } from '../../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
 import { MarkdownModule } from 'angular2-markdown';
 
 @NgModule({
   imports: [
     CommonModule,
-    MdInputModule,
+    MatInputModule,
     SharedModule,
     FormsModule,
     HttpClientModule,
-    HttpModule,
     MarkdownModule
   ],
   declarations: [SearchBoxComponent, SearchResultComponent],

@@ -32,11 +32,10 @@ export class SearchService {
 
     this.query = query.toLowerCase();
 
+    this.searchBuilding();
+    this.searchCourse();
     this.searchFood();
 
-    this.searchBuilding();
-
-    this.searchCourse();
 
     // unstable
     // if (this.query.length >= 5) {
@@ -85,30 +84,11 @@ export class SearchService {
               console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
             }
           });
-    } else {
-      this.http.get('https://cors-anywhere.herokuapp.com/' // use proxy to bypass CORS
-        + 'https://cobalt.qas.im/api/1.0/courses/CSC148H120179',
-        {headers: this.headers})
-        .subscribe(
-          data => {
-            const course = data;
-            this.results = '<h1>' + course['name'] + '</h1>' + course['description'];
-          },
-          (err: HttpErrorResponse) => {
-            if (err.error instanceof Error) {
-              // A client-side or network error occurred. Handle it accordingly.
-              console.log('An error occurred:', err.error.message);
-            } else {
-              // The backend returned an unsuccessful response code.
-              // The response body may contain clues as to what went wrong,
-              console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
-            }
-          });
     }
   }
 
   private searchBuilding() {
-    if (this.query.length == 2) {
+    if (this.query.length === 2) {
       this.http.get('https://cors-anywhere.herokuapp.com/'
         + 'https://cobalt.qas.im/api/1.0/buildings/search',
         {
@@ -181,6 +161,9 @@ export class SearchService {
   with the data.
   */
   public searchFood() {
+    if (!isUndefined(this.results)) {
+      return;
+    }
     const link = 'https://cobalt.qas.im/api/1.0/food/search';
     this.http.get('https://cors-anywhere.herokuapp.com/' + link,
       {
