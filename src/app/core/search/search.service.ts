@@ -161,7 +161,7 @@ export class SearchService {
   with the data.
   */
   public searchFood() {
-    if (!isUndefined(this.results)) {
+    if (!isUndefined(this.results) || this.query.length < 5) {
       return;
     }
     const link = 'https://cobalt.qas.im/api/1.0/food/search';

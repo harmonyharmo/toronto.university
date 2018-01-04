@@ -1,12 +1,10 @@
 <!--put toolbar and sidenav together for easier toggle and built-in backdrop-->
 <mat-toolbar color="primary">
-  <span fxLayout="row" fxLayoutAlign="space-between center">
-    <button mat-button (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>Toronto.University</span>
-    <app-search-box></app-search-box>
-  </span>
+  <button mat-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>TO.Uni</span>
+  <app-search-box></app-search-box>
 </mat-toolbar>
 
 
@@ -17,7 +15,7 @@
     <mat-nav-list fxLayout="column">
 
       <mat-list-item (click)="sidenav.toggle()" [routerLink]="['']" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact: true}">
+                     [routerLinkActiveOptions]="{exact: true}">
         <button mat-button="">
           <mat-icon>home</mat-icon>
           <span>Home</span>
