@@ -1,3 +1,12 @@
-mat-card mat-card{
-  background: #92a4f5;
+mat-card {
+  background: #2876cb;
+  a {
+    text-decoration: none
+  }
+  mat-card-title {
+    color: #dae9f8;
+  }
+  margin: 10px
 }
+
+
