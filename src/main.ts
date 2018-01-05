@@ -16,7 +16,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 if (environment.production && 'serviceWorker' in navigator) {
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register('/service-worker.js')
+    navigator.serviceWorker.register('/ngsw-worker.js')
       .then(function (registration) {
         // Registration was successful
         console.log('ServiceWorker registration successful with scope: ', registration.scope);
