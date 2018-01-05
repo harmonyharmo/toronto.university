@@ -9,7 +9,7 @@
 
 
 <mat-sidenav-container>
-  <app-search-result></app-search-result>
+  <app-search-result *ngIf="!sidenav.opened"></app-search-result>
 
   <mat-sidenav #sidenav>
     <mat-nav-list fxLayout="column">

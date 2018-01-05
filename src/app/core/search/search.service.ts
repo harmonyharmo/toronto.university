@@ -45,8 +45,6 @@ export class SearchService {
 
   private searchCourse() {
     if (this.query.length === 6) {
-      this.http.get('https://cors-anywhere.herokuapp.com/http://example.com')
-        .subscribe(data => console.log(data));
       this.http.get('https://cors-anywhere.herokuapp.com/' // use proxy to bypass CORS
         + 'https://timetable.iit.artsci.utoronto.ca/api/20179/courses?org=&code='
         + this.query
@@ -59,17 +57,21 @@ export class SearchService {
             }
             const meetings = fall.meetings;
             const meeting = meetings[Object.keys(meetings)[0]];
+            const instructor = meeting.instructors[Object.keys(meeting.instructors)[0]];
+            let location = meeting.schedule[Object.keys(meeting.schedule)[0]].assignedRoom1;
+            if (location == null) {
+              location = meeting.schedule[Object.keys(meeting.schedule)[0]].assignedRoom2;
+            }
+            // console.log(location);
 
             this.results = '<h1>' + fall.courseTitle + '</h1>' + fall.courseDescription
+              + '<br/>Instructor : ' + instructor.firstName + ' ' + instructor.lastName
+              + '<br/>Location : ' + location
               + '<br/>Waitlist : ' + meeting.actualWaitlist + '/' + meeting.actualEnrolment;
 
             if (this.query.startsWith('csc')) {
               let link;
-              if (this.query === 'csc318') {
-                link = `https://markus.teach.cs.toronto.edu/${this.query}-2017-09-5101/en/assignments`;
-              } else {
-                link = `https://markus.teach.cs.toronto.edu/${this.query}-2017-09/en/assignments`;
-              }
+              link = `https://markus.teach.cs.toronto.edu/${this.query}-2017-09/en/assignments`;
               this.results = SearchService.get_link('Markus', link) + this.results;
             }
           },
