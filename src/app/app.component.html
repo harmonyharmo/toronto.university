@@ -7,42 +7,17 @@
   <app-search-box></app-search-box>
 </mat-toolbar>
 
-
 <mat-sidenav-container>
   <app-search-result *ngIf="!sidenav.opened"></app-search-result>
 
   <mat-sidenav #sidenav>
-    <mat-nav-list fxLayout="column">
-
-      <mat-list-item (click)="sidenav.toggle()" [routerLink]="['']" routerLinkActive="active"
+    <mat-nav-list>
+      <mat-list-item *ngFor="let link of sidenav_links"
+                     (click)="sidenav.toggle()" [routerLink]="[link.url]" routerLinkActive="active"
                      [routerLinkActiveOptions]="{exact: true}">
-        <button mat-button="">
-          <mat-icon>home</mat-icon>
-          <span>Home</span>
-        </button>
+        <mat-icon>{{link.icon}}</mat-icon>
+        <span>{{link.name}}</span>
       </mat-list-item>
-
-      <mat-list-item [routerLink]="['referral']" routerLinkActive="active" (click)="sidenav.toggle()">
-        <button mat-button="">
-          <mat-icon>person_add</mat-icon>
-          <span>Referral</span>
-        </button>
-      </mat-list-item>
-
-      <mat-list-item (click)="sidenav.toggle()" [routerLink]="['contact']" routerLinkActive="active">
-        <button mat-button="">
-          <mat-icon>email</mat-icon>
-          <span>Contact</span>
-        </button>
-      </mat-list-item>
-
-      <mat-list-item (click)="sidenav.toggle()" [routerLink]="['about']" routerLinkActive="active">
-        <button mat-button="">
-          <mat-icon>help_outline</mat-icon>
-          <span>About</span>
-        </button>
-      </mat-list-item>
-
     </mat-nav-list>
   </mat-sidenav>
 

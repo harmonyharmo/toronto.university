@@ -1,15 +1,5 @@
-<mat-card>
-  <a href="guide">
-    <mat-card-title>User Guide</mat-card-title>
-  </a>
-</mat-card>
-<mat-card>
-  <a href="about">
-    <mat-card-title>About</mat-card-title>
-  </a>
-</mat-card>
-<mat-card>
-  <a href="join">
-    <mat-card-title>Join Us</mat-card-title>
+<mat-card *ngFor="let card of cards">
+  <a href="{{card.link}}">
+    <mat-card-title>{{card.title}}</mat-card-title>
   </a>
 </mat-card>
