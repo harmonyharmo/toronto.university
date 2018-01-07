@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  cards = [
+  internal_cards = [
     {link: 'guide', title: 'User Guide'},
     {link: 'about', title: 'About'},
     {link: 'join', title: 'Join Us'},
+  ];
+  external_cards = [
+    {link: 'https://fas.calendar.utoronto.ca/listing-program-subject-areas', title: 'Programs'},
+    {link: 'https://fas.calendar.utoronto.ca/sessional-dates', title: 'Calendar'},
+    {link: 'https://utoronto-sp.blackboard.com/eAccounts/AccountSummary.aspx?menu=0', title: 'Top-up Tcard'},
+    {link: 'https://course-evals.utoronto.ca/BPI/fbview.aspx?blockid=seipDRPeug8Eu', title: 'Course Evaluation'},
   ];
 
   constructor() {

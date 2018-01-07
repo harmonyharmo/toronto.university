@@ -1,5 +1,10 @@
-<mat-card *ngFor="let card of cards">
+<mat-card *ngFor="let card of internal_cards">
   <a routerLink="{{card.link}}">
+    <mat-card-title>{{card.title}}</mat-card-title>
+  </a>
+</mat-card>
+<mat-card *ngFor="let card of external_cards">
+  <a href="{{card.link}}">
     <mat-card-title>{{card.title}}</mat-card-title>
   </a>
 </mat-card>
