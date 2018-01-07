@@ -9,17 +9,20 @@ import { GuideComponent } from './content/guide/guide.component';
 import { ExamComponent } from './content/exam/exam.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'about', component: AboutComponent},
   {path: 'referral', component: ReferralComponent},
   {path: 'join', component: JoinComponent},
   {path: 'guide', component: GuideComponent},
-  {path: 'exam', component: ExamComponent}
+  {path: 'exam', component: ExamComponent},
+  {path: '', component: HomeComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes,
+      // {enableTracing: true}
+    )],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

@@ -4,6 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   MatButtonModule, MatCardModule, MatIconModule, MatListModule, MatMenuModule, MatTableModule
 } from '@angular/material';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import {
     MatMenuModule,
     MatCardModule,
     MatTableModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    AppRoutingModule
   ]
 })
 export class SharedModule {
