@@ -7,6 +7,7 @@ import { ReferralComponent } from './content/referral/referral.component';
 import { JoinComponent } from './content/join/join.component';
 import { GuideComponent } from './content/guide/guide.component';
 import { ExamComponent } from './content/exam/exam.component';
+import { NotfoundComponent } from './content/notfound/notfound.component';
 
 const routes: Routes = [
   {path: 'contact', component: ContactComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'guide', component: GuideComponent},
   {path: 'exam', component: ExamComponent},
   {path: '', component: HomeComponent},
+  {path: '**', component: NotfoundComponent},
 ];
 
 @NgModule({

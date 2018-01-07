@@ -11,6 +11,7 @@ import { ReferralComponent } from './referral/referral.component';
 import { JoinComponent } from './join/join.component';
 import { GuideComponent } from './guide/guide.component';
 import { ExamComponent } from './exam/exam.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import { ExamComponent } from './exam/exam.component';
     SharedModule
   ],
   declarations: [
-    ContentComponent, AboutComponent, ReferralComponent, JoinComponent, GuideComponent, ExamComponent],
+    ContentComponent, AboutComponent, ReferralComponent, JoinComponent, GuideComponent, ExamComponent, NotfoundComponent],
   exports: [ContentComponent]
 })
 export class ContentModule {
