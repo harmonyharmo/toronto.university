@@ -20,7 +20,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
     HomeModule,
     ContactModule,
     MarkdownModule,
-    SharedModule
+    SharedModule,
+    // AngularFireModule.initializeApp({ databaseURL: 'https://toronto-university.firebaseio.com/'}),
+    // AngularFireDatabaseModule
   ],
   declarations: [
     ContentComponent, AboutComponent, ReferralComponent, JoinComponent, GuideComponent, ExamComponent, NotfoundComponent],
