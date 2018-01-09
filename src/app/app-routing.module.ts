@@ -8,6 +8,7 @@ import { JoinComponent } from './content/join/join.component';
 import { GuideComponent } from './content/guide/guide.component';
 import { ExamComponent } from './content/exam/exam.component';
 import { NotfoundComponent } from './content/notfound/notfound.component';
+import { NotesComponent } from './content/notes/notes.component';
 
 const routes: Routes = [
   {path: 'contact', component: ContactComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'join', component: JoinComponent},
   {path: 'guide', component: GuideComponent},
   {path: 'exam', component: ExamComponent},
+  {path: 'notes', component: NotesComponent},
   {path: '', component: HomeComponent},
   {path: '**', component: NotfoundComponent},
 ];

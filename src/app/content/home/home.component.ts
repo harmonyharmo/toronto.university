@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
     {link: 'guide', title: 'User Guide'},
     {link: 'about', title: 'About'},
     {link: 'join', title: 'Join Us'},
+    {link: 'notes', title: 'Course Notes'},
   ];
   external_cards = [
     {link: 'https://fas.calendar.utoronto.ca/listing-program-subject-areas', title: 'Programs'},
