@@ -3,7 +3,9 @@
   <button mat-button (click)="sidenav.toggle()" aria-label="menu">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>TO.Uni</span>
+  <a id="logo" routerLink="/">
+    <img src="/assets/icons/logo.png" width="40" height="40" alt="Home">
+  </a>
   <app-search-box></app-search-box>
 </mat-toolbar>
 
