@@ -27,7 +27,15 @@ import { TeamComponent } from './team/team.component';
     // AngularFireDatabaseModule
   ],
   declarations: [
-    ContentComponent, AboutComponent, ReferralComponent, JoinComponent, GuideComponent, ExamComponent, NotfoundComponent, NotesComponent, TeamComponent],
+    ContentComponent,
+    AboutComponent,
+    ReferralComponent,
+    JoinComponent,
+    GuideComponent,
+    ExamComponent,
+    NotfoundComponent,
+    NotesComponent,
+    TeamComponent],
   exports: [ContentComponent]
 })
 export class ContentModule {
