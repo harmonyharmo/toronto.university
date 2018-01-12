@@ -9,8 +9,10 @@ import { GuideComponent } from './content/guide/guide.component';
 import { ExamComponent } from './content/exam/exam.component';
 import { NotfoundComponent } from './content/notfound/notfound.component';
 import { NotesComponent } from './content/notes/notes.component';
+import { TeamComponent } from './content/team/team.component';
 
 const routes: Routes = [
+  {path: 'team', component: TeamComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'about', component: AboutComponent},
   {path: 'referral', component: ReferralComponent},

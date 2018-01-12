@@ -66,7 +66,7 @@ export class SearchService {
 
             this.results = '<h1>' + fall.courseTitle + '</h1>' + fall.courseDescription
               + '<br/>Instructor : ' + instructor.firstName + ' ' + instructor.lastName
-              + '<br/>Location : ' + location
+              // + '<br/>Location : ' + location
               + '<br/>Waitlist : ' + meeting.actualWaitlist + '/' + meeting.actualEnrolment;
 
             if (this.query.startsWith('csc')) {
@@ -163,7 +163,7 @@ export class SearchService {
   with the data.
   */
   public searchFood() {
-    if (!isUndefined(this.results) || this.query.length < 5) {
+    if (this.query.length < 5) {
       return;
     }
     const link = 'https://cobalt.qas.im/api/1.0/food/search';

@@ -13,6 +13,7 @@ import { GuideComponent } from './guide/guide.component';
 import { ExamComponent } from './exam/exam.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { NotesComponent } from './notes/notes.component';
+import { TeamComponent } from './team/team.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,7 @@ import { NotesComponent } from './notes/notes.component';
     // AngularFireDatabaseModule
   ],
   declarations: [
-    ContentComponent, AboutComponent, ReferralComponent, JoinComponent, GuideComponent, ExamComponent, NotfoundComponent, NotesComponent],
+    ContentComponent, AboutComponent, ReferralComponent, JoinComponent, GuideComponent, ExamComponent, NotfoundComponent, NotesComponent, TeamComponent],
   exports: [ContentComponent]
 })
 export class ContentModule {
