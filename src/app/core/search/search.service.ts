@@ -71,7 +71,7 @@ export class SearchService {
 
             if (this.query.startsWith('csc')) {
               let link;
-              link = `https://markus.teach.cs.toronto.edu/${this.query}-2017-09/en/assignments`;
+              link = `https://markus.teach.cs.toronto.edu/${this.query}-2018-01/en/assignments`;
               this.results = SearchService.get_link('Markus', link) + this.results;
             }
           },
