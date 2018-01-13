@@ -14,6 +14,7 @@ import { ExamComponent } from './exam/exam.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { NotesComponent } from './notes/notes.component';
 import { TeamComponent } from './team/team.component';
+import { WikiComponent } from './wiki/wiki.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { TeamComponent } from './team/team.component';
     ExamComponent,
     NotfoundComponent,
     NotesComponent,
-    TeamComponent],
+    TeamComponent,
+    WikiComponent],
   exports: [ContentComponent]
 })
 export class ContentModule {

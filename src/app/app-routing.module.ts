@@ -10,8 +10,10 @@ import { ExamComponent } from './content/exam/exam.component';
 import { NotfoundComponent } from './content/notfound/notfound.component';
 import { NotesComponent } from './content/notes/notes.component';
 import { TeamComponent } from './content/team/team.component';
+import { WikiComponent } from './content/wiki/wiki.component';
 
 const routes: Routes = [
+  {path: 'wiki', component: WikiComponent},
   {path: 'team', component: TeamComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'about', component: AboutComponent},

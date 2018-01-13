@@ -34,7 +34,7 @@ export class SearchService {
 
     this.searchBuilding();
     this.searchCourse();
-    this.searchFood();
+    // this.searchFood();
 
 
     // unstable
@@ -44,92 +44,92 @@ export class SearchService {
   }
 
   private searchCourse() {
-    if (this.query.length === 6) {
-      this.http.get('https://cors-anywhere.herokuapp.com/' // use proxy to bypass CORS
-        + 'https://timetable.iit.artsci.utoronto.ca/api/20179/courses?org=&code='
-        + this.query
-        + '&section=&studyyear=&daytime=&weekday=&prof=&breadth=&online=&waitlist=&available=&title=')
-        .subscribe(
-          data => {
-            const fall = data[Object.keys(data)[0]];
-            if (isUndefined(fall)) {
-              return;
-            }
-            const meetings = fall.meetings;
-            const meeting = meetings[Object.keys(meetings)[0]];
-            const instructor = meeting.instructors[Object.keys(meeting.instructors)[0]];
-            let location = meeting.schedule[Object.keys(meeting.schedule)[0]].assignedRoom1;
-            if (location == null) {
-              location = meeting.schedule[Object.keys(meeting.schedule)[0]].assignedRoom2;
-            }
-            // console.log(location);
-
-            this.results = '<h1>' + fall.courseTitle + '</h1>' + fall.courseDescription
-              + '<br/>Instructor : ' + instructor.firstName + ' ' + instructor.lastName
-              // + '<br/>Location : ' + location
-              + '<br/>Waitlist : ' + meeting.actualWaitlist + '/' + meeting.actualEnrolment;
-
-            if (this.query.startsWith('csc')) {
-              let link;
-              link = `https://markus.teach.cs.toronto.edu/${this.query}-2018-01/en/assignments`;
-              this.results = SearchService.get_link('Markus', link) + this.results;
-            }
-          },
-          (err: HttpErrorResponse) => {
-            this.results = '';
-            if (err.error instanceof Error) {
-              // A client-side or network error occurred. Handle it accordingly.
-              console.log('An error occurred:', err.error.message);
-            } else {
-              // The backend returned an unsuccessful response code.
-              // The response body may contain clues as to what went wrong,
-              console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
-            }
-          });
+    if (this.query.length !== 6) {
+      return;
     }
+    this.http.get('https://cors-anywhere.herokuapp.com/' // use proxy to bypass CORS
+      + `https://timetable.iit.artsci.utoronto.ca/api/20179/courses?org=&code=${this.query}`
+      + '&section=&studyyear=&daytime=&weekday=&prof=&breadth=&online=&waitlist=&available=&title=')
+      .subscribe(
+        data => {
+          if (this.query.startsWith('csc')) {
+            let link;
+            link = `https://markus.teach.cs.toronto.edu/${this.query}-2018-01/en/assignments`;
+            this.results = SearchService.get_link('Markus', link);
+          }
+          const fall = data[Object.keys(data)[0]];
+          if (isUndefined(fall)) {
+            return;
+          }
+          const meetings = fall.meetings;
+          const meeting = meetings[Object.keys(meetings)[0]];
+          const instructor = meeting.instructors[Object.keys(meeting.instructors)[0]];
+          // let location = meeting.schedule[Object.keys(meeting.schedule)[0]].assignedRoom1;
+          // if (location == null) {
+          //   location = meeting.schedule[Object.keys(meeting.schedule)[0]].assignedRoom2;
+          // }
+          this.results = this.results + '<h1>' + fall.courseTitle + '</h1>' + fall.courseDescription
+            + '<br/>Instructor : ' + instructor.firstName + ' ' + instructor.lastName
+            // + '<br/>Location : ' + location
+            + '<br/>Waitlist : ' + meeting.actualWaitlist + '/' + meeting.actualEnrolment;
+
+
+        },
+        (err: HttpErrorResponse) => {
+          this.results = '';
+          if (err.error instanceof Error) {
+            // A client-side or network error occurred. Handle it accordingly.
+            console.log('An error occurred:', err.error.message);
+          } else {
+            // The backend returned an unsuccessful response code.
+            // The response body may contain clues as to what went wrong,
+            console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+          }
+        });
   }
 
   private searchBuilding() {
-    if (this.query.length === 2) {
-      this.http.get('https://cors-anywhere.herokuapp.com/'
-        + 'https://cobalt.qas.im/api/1.0/buildings/search',
-        {
-          headers: this.headers,
-          params: new HttpParams().set('q', this.query + ' ') // minimum query length is 3
-        }
-      )
-        .subscribe(
-          data => {
-            const building = data[0];
-            const link = 'https://www.google.com/maps/place/' + encodeURIComponent(building.name);
-            this.results = SearchService.get_link(building.name, link);
-            this.http.get('https://cors-anywhere.herokuapp.com/'
-              + `http://uoftstudyspot.com/api/optimize?code=${this.query}`).subscribe(
-              rooms => {
-                let empty_rooms = '';
-
-                for (const key in Object.keys(rooms)) {
-                  empty_rooms += '</br> Room ' + rooms[key]['id'];
-                }
-                if (empty_rooms !== '') {
-                  empty_rooms = '<h2>Free rooms</h2>' + empty_rooms;
-                }
-
-                this.results += empty_rooms;
-              }
-            );
-          },
-          (err: HttpErrorResponse) => {
-            if (err.error instanceof Error) {
-              // A client-side or network error occurred. Handle it accordingly.
-              console.log('An error occurred:', err.error.message);
-            } else {
-              // The backend returned an unsuccessful response code.
-              // The response body may contain clues as to what went wrong,
-              console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
-            }
-          });
+    if (this.query.length !== 2) {
+      return;
     }
+    this.http.get('https://cors-anywhere.herokuapp.com/'
+      + 'https://cobalt.qas.im/api/1.0/buildings/search',
+      {
+        headers: this.headers,
+        params: new HttpParams().set('q', this.query + ' ') // minimum query length is 3
+      }
+    )
+      .subscribe(
+        data => {
+          const building = data[0];
+          const link = 'https://www.google.com/maps/place/' + encodeURIComponent(building.name);
+          this.results = SearchService.get_link(building.name, link);
+          this.http.get('https://cors-anywhere.herokuapp.com/'
+            + `http://uoftstudyspot.com/api/optimize?code=${this.query}`).subscribe(
+            rooms => {
+              let empty_rooms = '';
+
+              for (const key in Object.keys(rooms)) {
+                empty_rooms += '</br> Room ' + rooms[key]['id'];
+              }
+              if (empty_rooms !== '') {
+                empty_rooms = '<h2>Free rooms</h2>' + empty_rooms;
+              }
+
+              this.results += empty_rooms;
+            }
+          );
+        },
+        (err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+            // A client-side or network error occurred. Handle it accordingly.
+            console.log('An error occurred:', err.error.message);
+          } else {
+            // The backend returned an unsuccessful response code.
+            // The response body may contain clues as to what went wrong,
+            console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+          }
+        });
   }
 
 
