@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TeamComponent implements OnInit {
 
   names = [
-    'Wednesday','Muyuan Cao'
+    'Wednesday', 'Zidong Xie','Muyuan Cao'
   ];
 
   constructor() {
