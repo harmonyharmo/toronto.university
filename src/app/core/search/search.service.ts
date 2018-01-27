@@ -14,7 +14,7 @@ export class SearchService {
   query: string;
   results: string;
   showSearchResults = false;
-  headers = new HttpHeaders({'Authorization': '7P8dMCt7hwG4ddkxkp1mUTv5VylSxi55'});
+  headers = new HttpHeaders({'Authorization': 'NtaAUFoJaFbtcj5tuJWlOq3TjSUwRdPc'});
 
   constructor(private http: HttpClient) {
   }

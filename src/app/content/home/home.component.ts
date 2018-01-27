@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
     {link: 'notes', title: 'Course Notes'},
   ];
   external_cards = [
+    {link: 'https://monkeykingg.github.io/', title: 'UTMap'},
     {link: 'https://docs.google.com/document/d/1PoSLaoBB7fXTiHUNYeCufoYixhAKUf18PHSwym3xeyM/edit?usp=sharing', title: 'Wiki'},
     {link: 'https://fas.calendar.utoronto.ca/listing-program-subject-areas', title: 'Programs'},
     {link: 'https://fas.calendar.utoronto.ca/sessional-dates', title: 'Calendar'},
