@@ -7,7 +7,7 @@ import { SearchService } from './search.service';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { SharedModule } from '../../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
-import { MarkdownModule } from 'angular2-markdown';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   imports: [

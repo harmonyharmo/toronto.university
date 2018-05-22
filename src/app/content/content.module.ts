@@ -5,7 +5,7 @@ import { ContactModule } from './contact/contact.module';
 import { ContentComponent } from './content.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { AboutComponent } from './about/about.component';
-import { MarkdownModule } from 'angular2-markdown';
+import { MarkdownModule } from 'ngx-markdown';
 import { SharedModule } from '../shared/shared.module';
 import { ReferralComponent } from './referral/referral.component';
 import { JoinComponent } from './join/join.component';
@@ -22,7 +22,7 @@ import { WikiComponent } from './wiki/wiki.component';
     AppRoutingModule,
     HomeModule,
     ContactModule,
-    MarkdownModule,
+    MarkdownModule.forChild(),
     SharedModule,
     // AngularFireModule.initializeApp({ databaseURL: 'https://toronto-university.firebaseio.com/'}),
     // AngularFireDatabaseModule
