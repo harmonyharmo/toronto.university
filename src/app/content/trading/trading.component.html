@@ -1,0 +1,45 @@
+<mat-card>
+  <mat-card-title>Ticker</mat-card-title>
+  <mat-card-content>
+    <form class="ticker-form">
+      <mat-form-field>
+        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="tickerControl" [matAutocomplete]="ticker">
+        <mat-autocomplete autoActiveFirstOption #ticker="matAutocomplete">
+          <mat-option *ngFor="let tickerOption of filteredTickerOptions | async" [value]="tickerOption">
+            {{tickerOption}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>Strategy</mat-card-title>
+  <mat-card-content>
+    <form class="strategy-form">
+      <mat-form-field>
+        <input type="text" placeholder="Pick one" aria-label="Strategy" matInput [formControl]="strategyControl" [matAutocomplete]="strategy">
+        <mat-autocomplete autoActiveFirstOption #strategy="matAutocomplete">
+          <mat-option *ngFor="let strategyOption of filteredStrategyOptions | async" [value]="strategyOption">
+            {{strategyOption}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>Stop Profit & Loss Threshold</mat-card-title>
+  <mat-card-content>
+    3%
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>Profit & Loss</mat-card-title>
+  <mat-card-content>
+    50%
+  </mat-card-content>
+</mat-card>
