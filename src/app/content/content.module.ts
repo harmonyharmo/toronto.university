@@ -15,7 +15,6 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { NotesComponent } from './notes/notes.component';
 import { TeamComponent } from './team/team.component';
 import { WikiComponent } from './wiki/wiki.component';
-import { TradingComponent } from './trading/trading.component';
 
 @NgModule({
   imports: [
@@ -38,8 +37,7 @@ import { TradingComponent } from './trading/trading.component';
     NotfoundComponent,
     NotesComponent,
     TeamComponent,
-    WikiComponent,
-    TradingComponent],
+    WikiComponent],
   exports: [ContentComponent]
 })
 export class ContentModule {

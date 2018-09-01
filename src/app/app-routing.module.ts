@@ -11,7 +11,6 @@ import { NotfoundComponent } from './content/notfound/notfound.component';
 import { NotesComponent } from './content/notes/notes.component';
 import { TeamComponent } from './content/team/team.component';
 import { WikiComponent } from './content/wiki/wiki.component';
-import { TradingComponent } from './content/trading/trading.component';
 
 const routes: Routes = [
   { path: 'wiki', component: WikiComponent },
@@ -23,7 +22,6 @@ const routes: Routes = [
   { path: 'guide', component: GuideComponent },
   { path: 'exam', component: ExamComponent },
   { path: 'notes', component: NotesComponent },
-  { path: 'trading', component: TradingComponent },
   { path: '', component: HomeComponent },
   { path: '**', component: NotfoundComponent },
 ];

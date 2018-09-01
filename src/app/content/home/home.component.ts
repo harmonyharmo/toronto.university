@@ -11,7 +11,6 @@ export class HomeComponent implements OnInit {
     { link: 'about', title: 'About' },
     { link: 'join', title: 'Join Us' },
     { link: 'team', title: 'Team' },
-    { link: 'trading', title: 'Trading Project' },
     { link: 'notes', title: 'Course Notes' },
   ];
   external_cards = [

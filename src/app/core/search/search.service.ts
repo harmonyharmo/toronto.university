@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable,Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 import { Http, RequestOptions, Response } from '@angular/http';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
@@ -13,7 +13,7 @@ export class SearchService {
   query: string;
   results: string;
   showSearchResults = false;
-  headers = new HttpHeaders({'Authorization': 'NtaAUFoJaFbtcj5tuJWlOq3TjSUwRdPc'});
+  headers = new HttpHeaders({ 'Authorization': 'NtaAUFoJaFbtcj5tuJWlOq3TjSUwRdPc' });
 
   constructor(private http: HttpClient) {
   }
@@ -53,7 +53,7 @@ export class SearchService {
         data => {
           if (this.query.startsWith('csc')) {
             let link;
-            link = `https://markus.teach.cs.toronto.edu/${this.query}-2018-01/en/assignments`;
+            link = `https://markus.teach.cs.toronto.edu/${this.query}-2018-09/en/assignments`;
             this.results = SearchService.get_link('Markus', link);
           }
           const fall = data[Object.keys(data)[0]];
@@ -105,19 +105,19 @@ export class SearchService {
           this.results = SearchService.get_link(building.name, link);
           this.http.get('https://cors-anywhere.herokuapp.com/'
             + `http://uoftstudyspot.com/api/optimize?code=${this.query}`).subscribe(
-            rooms => {
-              let empty_rooms = '';
+              rooms => {
+                let empty_rooms = '';
 
-              for (const key in Object.keys(rooms)) {
-                empty_rooms += '</br> Room ' + rooms[key]['id'];
-              }
-              if (empty_rooms !== '') {
-                empty_rooms = '<h2>Free rooms</h2>' + empty_rooms;
-              }
+                for (const key in Object.keys(rooms)) {
+                  empty_rooms += '</br> Room ' + rooms[key]['id'];
+                }
+                if (empty_rooms !== '') {
+                  empty_rooms = '<h2>Free rooms</h2>' + empty_rooms;
+                }
 
-              this.results += empty_rooms;
-            }
-          );
+                this.results += empty_rooms;
+              }
+            );
         },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
@@ -138,7 +138,7 @@ export class SearchService {
     const link = `http://www.osm.utoronto.ca/i/Photos/Website/RoomPlansPDF/${this.query}.pdf`;
     this.http.get('https://cors-anywhere.herokuapp.com/' // use proxy to bypass CORS
       + link,
-      {headers: this.headers})
+      { headers: this.headers })
       .subscribe(
         data => {
           this.results = SearchService.get_link('Room Info', link);
