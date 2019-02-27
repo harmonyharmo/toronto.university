@@ -11,6 +11,21 @@
         "source": "**",
         "destination": "/index.html"
       }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=2628000"
+          },
+          {
+            "key": "Content-Encoding",
+            "value": "gzip"
+          }
+        ]
+      }
     ]
   }
 }
