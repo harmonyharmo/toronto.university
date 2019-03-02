@@ -1,11 +1,11 @@
 <!--put toolbar and sidenav together for easier toggle and built-in backdrop-->
-<mat-toolbar color="primary">
+<mat-toolbar>
   <button mat-button (click)="sidenav.toggle()" aria-label="menu">
     <mat-icon>menu</mat-icon>
   </button>
-  <a id="logo" routerLink="/">
+  <button mat-button id="logo" routerLink="/">
     <img src="/assets/icons/logo.png" width="40" height="40" alt="Home">
-  </a>
+  </button>
   <app-search-box></app-search-box>
 </mat-toolbar>
 

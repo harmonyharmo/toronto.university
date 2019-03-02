@@ -1,21 +1,19 @@
 mat-form-field {
-  margin-right: 10px;
   color: #002a5c;
-
-  mat-placeholder {
-    margin-left: 10px;
-  }
 
   input {
     color: #000000;
     border: none;
     border-radius: 100px;
     background-color: white;
-    padding: 5px 16px;
+    padding: 5px 10px;
 
     &:focus {
       outline: none;
     }
+  }
 
+  mat-placeholder {
+    margin-left: 10px
   }
 }

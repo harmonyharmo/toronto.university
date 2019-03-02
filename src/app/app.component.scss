@@ -1,25 +1,16 @@
 @import "core/../../theme";
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 mat-toolbar {
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-  padding: 0 0 0 0;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.30);
-
-  button {
-    min-width: 0;
-    margin-right: 10px;
-  }
-  #logo {
-    width: 100%;
-    padding-right: 10px;
-  }
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
 mat-sidenav-container {
   height: 100%;
+
   .mat-list-item.active {
     color: mat-color($primary, A100)
   }

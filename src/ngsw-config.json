@@ -6,9 +6,7 @@
       "installMode": "prefetch",
       "resources": {
         "files": [
-          "/index.html"
-        ],
-        "versionedFiles": [
+          "/index.html",
           "/*.bundle.css",
           "/*.bundle.js",
           "/*.chunk.js"
@@ -18,7 +16,7 @@
     {
       "name": "assets",
       "installMode": "lazy",
-      "updateMode": "prefetch",
+      "updateMode": "lazy",
       "resources": {
         "files": [
           "/assets/**"

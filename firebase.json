@@ -14,7 +14,7 @@
     ],
     "headers": [
       {
-        "source": "**/*.@(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)",
+        "source": "**/*.@(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|json)",
         "headers": [
           {
             "key": "Cache-Control",
@@ -23,6 +23,15 @@
           {
             "key": "Content-Encoding",
             "value": "gzip"
+          }
+        ]
+      },
+      {
+        "source": "https://fonts.googleapis.com/icon?family=Material+Icons",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=2628000"
           }
         ]
       }
