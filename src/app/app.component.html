@@ -4,7 +4,7 @@
     <mat-icon>menu</mat-icon>
   </button>
   <button mat-button id="logo" routerLink="/">
-    <img src="/assets/icons/logo.png" width="40" height="40" alt="Home">
+    <img src="../assets/icons/logo.svg" width="40" height="40" alt="Home">
   </button>
   <app-search-box></app-search-box>
 </mat-toolbar>
@@ -14,9 +14,8 @@
 
   <mat-sidenav #sidenav>
     <mat-nav-list>
-      <mat-list-item *ngFor="let link of sidenav_links"
-                     (click)="sidenav.toggle()" [routerLink]="[link.url]" routerLinkActive="active"
-                     [routerLinkActiveOptions]="{exact: true}">
+      <mat-list-item *ngFor="let link of sidenav_links" (click)="sidenav.toggle()" [routerLink]="[link.url]"
+        routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <mat-icon>{{link.icon}}</mat-icon>
         <span>{{link.name}}</span>
       </mat-list-item>
